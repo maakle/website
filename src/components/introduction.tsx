@@ -5,7 +5,7 @@ import { Cube } from "./animation/cube"
 export function Introduction() {
   return (
     <div className="space-y-4 p-4">
-      {/* <Cube /> */}
+      <Cube />
       <p>Hey, I'm Mathias! 👋</p>
       <p>
         I'm a full-stack developer and tech entrepreneur based in Berlin,

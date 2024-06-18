@@ -1,6 +1,7 @@
 "use client"
 
 import React, { Suspense } from "react"
+// import Spline from "@splinetool/react-spline/next"
 import { Application } from "@splinetool/runtime"
 
 const Spline = React.lazy(() => import("@splinetool/react-spline"))
@@ -20,6 +21,7 @@ export function Cube() {
       >
         <div>
           <Spline
+            id="Cube"
             onLoad={onLoad}
             scene="https://prod.spline.design/y9kG3baUI0jXscIP/scene.splinecode"
           />
