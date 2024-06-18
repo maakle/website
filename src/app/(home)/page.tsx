@@ -31,7 +31,7 @@ export default async function Home() {
             <a
               target="_blank"
               href={`${siteConfig.links.github}?tab=repositories`}
-              className="px-4 text-sm underline"
+              className="rounded-lg px-3 py-2 text-sm hover:bg-muted"
             >
               See More...
             </a>
@@ -60,7 +60,7 @@ export default async function Home() {
           <a
             target="_blank"
             href={`${siteConfig.links.github}?tab=repositories`}
-            className="px-4 text-sm underline"
+            className="rounded-lg px-3 py-2 text-sm hover:bg-muted"
           >
             See More...
           </a>

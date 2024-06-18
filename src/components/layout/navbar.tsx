@@ -43,6 +43,15 @@ export default function Navbar() {
               </Link>
             </li>
             <li>
+              <a
+                className="rounded-md px-3 py-2 hover:bg-muted"
+                target="_blank"
+                href="https://maakle.medium.com"
+              >
+                Blog
+              </a>
+            </li>
+            <li>
               <Link
                 className="rounded-md px-3 py-2 hover:bg-muted"
                 href="/statistics"

@@ -8,8 +8,8 @@ export function Introduction() {
       <Cube />
       <p>Hey, I'm Mathias! 👋</p>
       <p>
-        I'm a full-stack developer and tech entrepreneur based in Berlin,
-        Germany. Currently, I work as CTO at{" "}
+        I'm a full-stack developer & tech entrepreneur based in Berlin.
+        Currently, I work as CTO at{" "}
         <a
           className="font-bold underline"
           target="_blank"
@@ -17,7 +17,7 @@ export function Introduction() {
         >
           Midlane
         </a>
-        . Previously I built and sold a KYC & digital identity company called{" "}
+        . Previously I built & sold a digital identity company called{" "}
         <a
           className="font-bold underline"
           target="_blank"
@@ -28,17 +28,17 @@ export function Introduction() {
         .
       </p>
       <p>
-        I love open-source and solving hard technical problems. My first love
-        was iOS development and Swift. Over the years I more and more felt in
-        love with web apps and the Javascript ecosystem.
+        My first programming love was iOS development and Swift. Over the years
+        I also started to fall in love with web applications and the Javascript
+        ecosystem.
       </p>
       <p>
-        My favorite tech stack for building apps is{" "}
+        Currently, my favorite tech stack for building apps is{" "}
         <span className="font-semibold">Next.js</span> with{" "}
-        <span className="font-semibold">TypeScript</span> for the frontend.{" "}
-        <span className="font-semibold">Tailwind</span> for styles.{" "}
+        <span className="font-semibold">TypeScript</span>,{" "}
+        <span className="font-semibold">Tailwind</span> for styles,{" "}
         <span className="font-semibold">Prisma</span> as ORM with{" "}
-        <span className="font-semibold">Postgres</span> as database. Hosted on{" "}
+        <span className="font-semibold">Postgres</span> as a database. Hosted on{" "}
         <span className="font-semibold">Vercel</span> or{" "}
         <span className="font-semibold">AWS</span>.
       </p>

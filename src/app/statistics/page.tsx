@@ -23,6 +23,8 @@ interface ResponseData {
 export default async function Stats() {
   const data = (await getCodingStats()) as ResponseData
 
+  console.log(data)
+
   if (!data || data.error) {
     return (
       <main className="items-center px-4 py-8">
