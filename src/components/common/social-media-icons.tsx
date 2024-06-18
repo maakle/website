@@ -1,4 +1,4 @@
-import { FaFacebook, FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa"
+import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa"
 
 import { siteConfig } from "@/config/site"
 
@@ -13,15 +13,6 @@ export function SocialMediaIcons() {
         className="rounded px-4 py-3 text-xl hover:bg-accent hover:text-accent-foreground"
       >
         <FaGithub />
-      </a>
-      <a
-        target="_blank"
-        href={siteConfig.links.facebook}
-        rel="noopener noreferrer"
-        aria-label="Facebook"
-        className="rounded px-4 py-3 text-xl hover:bg-accent hover:text-accent-foreground"
-      >
-        <FaFacebook />
       </a>
       <a
         target="_blank"

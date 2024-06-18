@@ -27,8 +27,8 @@ export function CodeTime({ started, totalTime, languages }: CodeTimeProps) {
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="text-lg font-bold">{languages[0].name}</div>
-          <p className="text-xs text-muted-foreground">{languages[0].text}</p>
+          <div className="text-lg font-bold">{languages[0]?.name}</div>
+          <p className="text-xs text-muted-foreground">{languages[0]?.text}</p>
         </CardContent>
       </Card>
     </div>

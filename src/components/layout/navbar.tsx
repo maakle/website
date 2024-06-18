@@ -26,17 +26,18 @@ export default function Navbar() {
     <nav className="select-none bg-background px-4">
       <div className="flex justify-between">
         <Link href="/" onClick={handleClick} className="flex items-center">
-          <h1 className="text-lg font-bold">/{siteConfig.name}</h1>
+          <h1 className="text-lg font-bold">{siteConfig.name}<span className="animate-ping">_</span>
+          </h1>
         </Link>
         <div className="flex gap-4">
-          <ul className="flex items-center space-x-4 text-sm text-zinc-500 dark:text-zinc-400">
-            <li className="hover:underline">
-              <Link href="/" onClick={handleClick}>
+          <ul className="flex items-center space-x-2 text-sm text-zinc-500 dark:text-zinc-400">
+            <li>
+              <Link className="px-3 py-2 rounded-md hover:bg-muted" href="/" onClick={handleClick}>
                 Home
               </Link>
             </li>
-            <li className="hover:underline">
-              <Link href="/dashboard" onClick={handleClick}>
+            <li>
+              <Link className="px-3 py-2 rounded-md hover:bg-muted" href="/dashboard" onClick={handleClick}>
                 Dashboard
               </Link>
             </li>

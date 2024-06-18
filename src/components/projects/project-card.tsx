@@ -15,7 +15,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
       href={project.link}
       rel="noopener noreferrer"
       aria-label={project.repo}
-      className="flex flex-col justify-between gap-2 rounded p-4 hover:bg-muted"
+      className="flex flex-col justify-between gap-2 rounded-md p-4 hover:bg-muted"
     >
       <div className="flex flex-col gap-1">
         <CardTitle className="text-base">{project.repo}</CardTitle>
