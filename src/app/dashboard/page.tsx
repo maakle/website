@@ -4,7 +4,6 @@ import { getCodingStats } from "@/lib/api/wakatime"
 import { HeadingText } from "@/components/common/heading-text"
 import { CodeTime } from "@/components/dashboard/code-time"
 import { Languages } from "@/components/dashboard/languages"
-import { SpotifyCard } from "@/components/dashboard/spotify-card"
 import { DashboardSkeleton } from "@/components/loaders/dashboard-skeleton"
 
 export const metadata = {
@@ -50,7 +49,6 @@ export default async function Dashboard() {
           Dashboard
         </HeadingText>
         <div className="flex flex-wrap gap-2">
-          <SpotifyCard />
           <CodeTime
             started={started}
             totalTime={totalTime}
