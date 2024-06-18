@@ -2,12 +2,12 @@ import { Languages as LanguagesType } from "@/types"
 
 import { getCodingStats } from "@/lib/api/wakatime"
 import { HeadingText } from "@/components/common/heading-text"
-import { CodeTime } from "@/components/dashboard/code-time"
-import { Languages } from "@/components/dashboard/languages"
 import { DashboardSkeleton } from "@/components/loaders/dashboard-skeleton"
+import { CodeTime } from "@/components/statistics/code-time"
+import { Languages } from "@/components/statistics/languages"
 
 export const metadata = {
-  title: "Dashboard",
+  title: "Statistics",
   description: "Statistics about my activities",
 }
 
@@ -20,7 +20,7 @@ interface ResponseData {
   error?: string
 }
 
-export default async function Dashboard() {
+export default async function Stats() {
   const data = (await getCodingStats()) as ResponseData
 
   if (!data || data.error) {
@@ -28,7 +28,7 @@ export default async function Dashboard() {
       <main className="items-center px-4 py-8">
         <div className="space-y-4">
           <HeadingText subtext="Statistics about my activities">
-            Dashboard
+            Statistics
           </HeadingText>
           <div className="flex flex-wrap gap-2">
             <DashboardSkeleton />
@@ -46,7 +46,7 @@ export default async function Dashboard() {
     <main className="items-center px-4 py-8">
       <div className="space-y-4">
         <HeadingText subtext="Statistics about my activities">
-          Dashboard
+          Statistics
         </HeadingText>
         <div className="flex flex-wrap gap-2">
           <CodeTime

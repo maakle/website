@@ -2,7 +2,7 @@ import { HeadingText } from "@/components/common/heading-text"
 import { DashboardSkeleton } from "@/components/loaders/dashboard-skeleton"
 
 export const metadata = {
-  title: "Dashboard",
+  title: "Statistics",
   description: "Statistics about my activities",
 }
 
@@ -11,7 +11,7 @@ export default async function Dashboard() {
     <main className="items-center px-4 py-8">
       <div className="space-y-4">
         <HeadingText subtext="Statistics about my activities">
-          Dashboard
+          Statistics
         </HeadingText>
         <div className="flex flex-wrap gap-2">
           <DashboardSkeleton />
