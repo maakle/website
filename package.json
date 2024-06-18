@@ -22,6 +22,8 @@
     "@radix-ui/react-slot": "^1.0.2",
     "@radix-ui/react-toggle": "^1.0.3",
     "@radix-ui/react-tooltip": "^1.0.6",
+    "@splinetool/react-spline": "^3.1.0",
+    "@splinetool/runtime": "^1.7.0",
     "@t3-oss/env-nextjs": "^0.6.0",
     "@types/node": "20.3.2",
     "@types/react": "18.2.14",
