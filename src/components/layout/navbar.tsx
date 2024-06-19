@@ -87,7 +87,7 @@ export default function Navbar() {
               </div>
               <div className="-mr-2 flex items-center sm:hidden">
                 {/* Mobile menu button */}
-                <DisclosureButton className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-900 hover:bg-muted focus:outline-none">
+                <DisclosureButton className="relative inline-flex items-center justify-center rounded-md p-2 hover:bg-muted focus:outline-none">
                   <span className="absolute -inset-0.5" />
                   <span className="sr-only">Open main menu</span>
                   {open ? (
@@ -98,7 +98,7 @@ export default function Navbar() {
                 </DisclosureButton>
               </div>
             </div>
-            <DisclosurePanel className="rounded-lg p-1 shadow-xl sm:hidden">
+            <DisclosurePanel className="rounded-lg p-1 shadow-xl dark:bg-neutral-900 sm:hidden">
               <div className="space-y-1 pb-3 pt-2">
                 <DisclosureButton
                   as="a"
