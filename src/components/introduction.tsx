@@ -42,6 +42,74 @@ export function Introduction() {
         <span className="font-semibold">Vercel</span> or{" "}
         <span className="font-semibold">AWS</span>.
       </p>
+      <p>
+        Sometimes, I write small angel checks into other tech startups.
+        Investments include:{" "}
+        <a
+          className="font-bold underline"
+          target="_blank"
+          href="https://wemolo.com"
+        >
+          Wemolo
+        </a>
+        ,{" "}
+        <a
+          className="font-bold underline"
+          target="_blank"
+          href="https://www.fides.technology/en/"
+        >
+          Fides
+        </a>
+        ,{" "}
+        <a
+          className="font-bold underline"
+          target="_blank"
+          href="https://www.turnkey.com/"
+        >
+          Turnkey
+        </a>
+        ,{" "}
+        <a
+          className="font-bold underline"
+          target="_blank"
+          href="https://www.euclidpower.com/"
+        >
+          Euclid
+        </a>
+        ,{" "}
+        <a
+          className="font-bold underline"
+          target="_blank"
+          href="https://www.rex.app/"
+        >
+          Rex
+        </a>
+        ,{" "}
+        <a
+          className="font-bold underline"
+          target="_blank"
+          href="https://www.synonym.bio/"
+        >
+          Synomym
+        </a>
+        ,{" "}
+        <a
+          className="font-bold underline"
+          target="_blank"
+          href="https://www.dashworks.ai/"
+        >
+          Dashworks
+        </a>
+        , or{" "}
+        <a
+          className="font-bold underline"
+          target="_blank"
+          href="https://popcorn.space/"
+        >
+          Popcorn
+        </a>{" "}
+        and a few more.{" "}
+      </p>
     </div>
   )
 }
