@@ -26,6 +26,14 @@ export function DashboardSkeleton() {
           </CardContent>
         </Card>
       </div>
+      <Card className="w-full pt-6">
+        <CardContent className="space-y-2">
+          <Skeleton className="h-4 w-full" />
+          <Skeleton className="h-4 w-full" />
+          <Skeleton className="h-4 w-full" />
+          <Skeleton className="h-4 w-full" />
+        </CardContent>
+      </Card>
       <Card className="w-full">
         <CardHeader>
           <CardTitle className="text-lg">Top Languages</CardTitle>
