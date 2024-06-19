@@ -35,10 +35,8 @@ export function Handbook() {
         It&apos;s better to suffer a short period a lot, than a long time a
         little bit
       </p>
-      <p>
-        The best people case so much about a problem that they can&apos;t sleep
-        at night
-      </p>
+      <p>If you truly care about a problem you can&apos;t sleep at night</p>
+      <p>The best people want to play in a Championship team</p>
 
       <p className="pt-6 font-bold">Work Style</p>
       <p>
