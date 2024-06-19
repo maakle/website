@@ -56,6 +56,15 @@ export default function Navbar() {
                     </Link>
                   </li>
                   <li>
+                    <Link
+                      className="rounded-md px-3 py-2 hover:bg-muted"
+                      href="/handbook"
+                      onClick={handleClick}
+                    >
+                      Handbook
+                    </Link>
+                  </li>
+                  <li>
                     <a
                       className="rounded-md px-3 py-2 hover:bg-muted"
                       target="_blank"
@@ -106,6 +115,13 @@ export default function Navbar() {
                   className="block rounded-md py-2 pl-3 pr-4 text-base font-medium hover:bg-muted"
                 >
                   Home
+                </DisclosureButton>
+                <DisclosureButton
+                  as="a"
+                  href="/handbook"
+                  className="block rounded-md py-2 pl-3 pr-4 text-base font-medium hover:bg-muted"
+                >
+                  Handbook
                 </DisclosureButton>
                 <DisclosureButton className="w-full text-left">
                   <a
