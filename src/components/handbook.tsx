@@ -24,6 +24,7 @@ export function Handbook() {
           Midlane
         </a>
       </p>
+      <p>Loves open-source</p>
 
       <p className="pt-6 font-bold">Values, Principles, Beliefs</p>
       <p>We solve the hard problems and make our customers the heros</p>
