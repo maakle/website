@@ -1,12 +1,12 @@
 import { HeadingText } from "@/components/common/heading-text"
-import { DashboardSkeleton } from "@/components/loaders/dashboard-skeleton"
+import { StatisticSkeleton } from "@/components/loaders/statistics-skeleton"
 
 export const metadata = {
   title: "Statistics",
   description: "Statistics about my programming",
 }
 
-export default async function Dashboard() {
+export default async function Loading() {
   return (
     <main className="items-center px-4 py-8">
       <div className="space-y-4">
@@ -14,7 +14,7 @@ export default async function Dashboard() {
           Statistics
         </HeadingText>
         <div className="flex flex-wrap gap-2">
-          <DashboardSkeleton />
+          <StatisticSkeleton />
         </div>
       </div>
     </main>

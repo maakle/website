@@ -1,7 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Skeleton } from "@/components/ui/skeleton"
 
-export function DashboardSkeleton() {
+export function StatisticSkeleton() {
   return (
     <>
       <div className="grid w-full grid-cols-1 gap-2 md:grid-cols-2">

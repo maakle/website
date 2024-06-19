@@ -4,7 +4,7 @@ import GitHubCalendar from "react-github-calendar"
 import { getCodingStats } from "@/lib/api/wakatime"
 import { Card } from "@/components/ui/card"
 import { HeadingText } from "@/components/common/heading-text"
-import { DashboardSkeleton } from "@/components/loaders/dashboard-skeleton"
+import { StatisticSkeleton } from "@/components/loaders/statistics-skeleton"
 import { CodeTime } from "@/components/statistics/code-time"
 import { Languages } from "@/components/statistics/languages"
 
@@ -33,7 +33,7 @@ export default async function Stats() {
             Statistics
           </HeadingText>
           <div className="flex flex-wrap gap-2">
-            <DashboardSkeleton />
+            <StatisticSkeleton />
           </div>
         </div>
       </main>

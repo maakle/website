@@ -54,6 +54,15 @@ export default function Navbar() {
             <li>
               <Link
                 className="rounded-md px-3 py-2 hover:bg-muted"
+                href="/music"
+                onClick={handleClick}
+              >
+                Music
+              </Link>
+            </li>
+            <li>
+              <Link
+                className="rounded-md px-3 py-2 hover:bg-muted"
                 href="/statistics"
                 onClick={handleClick}
               >

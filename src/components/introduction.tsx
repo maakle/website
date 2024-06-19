@@ -6,9 +6,9 @@ export function Introduction() {
   return (
     <div className="space-y-4 p-4">
       <Cube />
-      <p>Hey, I'm Mathias! 👋</p>
+      <p>Hey, I&apos;m Mathias! 👋</p>
       <p>
-        I'm a full-stack developer & tech entrepreneur based in Berlin.
+        I&apos;m a full-stack developer & tech entrepreneur based in Berlin.
         Currently, I work as CTO at{" "}
         <a
           className="font-bold underline"
