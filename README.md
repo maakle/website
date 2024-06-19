@@ -1,6 +1,6 @@
-# rdev.pro
+# maakle.com
 
-My personal website built with [Next.js](https://nextjs.org/).
+My personal website built with [Next.js](https://nextjs.org/), [Tailwind](https://tailwindcss.org/), and [Radix](https://www.radix-ui.com/),[Shadcn]https://ui.shadcn.com/).
 
 ## Local Installation
 
