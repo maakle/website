@@ -1,6 +1,7 @@
 import "@/styles/globals.css"
 
 import { Metadata, Viewport } from "next"
+import dynamic from "next/dynamic"
 import { Inter } from "next/font/google"
 
 import { siteConfig } from "@/config/site"
@@ -8,6 +9,12 @@ import { cn } from "@/lib/utils"
 import Footer from "@/components/layout/footer"
 import Navbar from "@/components/layout/navbar"
 import { ThemeProvider } from "@/components/theme-provider"
+
+import { PHProvider } from "./providers"
+
+const PostHogPageView = dynamic(() => import("./PostHogPageView"), {
+  ssr: false,
+})
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -75,20 +82,23 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={cn(
-          "bg-background text-zinc-800 antialiased dark:text-zinc-200",
-          inter.className
-        )}
-      >
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-          <div className="flex min-h-screen flex-col px-4 py-4 md:container md:w-[45rem] md:px-0 md:py-8">
-            <Navbar />
-            {children}
-            <Footer />
-          </div>
-        </ThemeProvider>
-      </body>
+      <PHProvider>
+        <body
+          className={cn(
+            "bg-background text-zinc-800 antialiased dark:text-zinc-200",
+            inter.className
+          )}
+        >
+          <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+            <div className="flex min-h-screen flex-col px-4 py-4 md:container md:w-[45rem] md:px-0 md:py-8">
+              <Navbar />
+              <PostHogPageView />
+              {children}
+              <Footer />
+            </div>
+          </ThemeProvider>
+        </body>
+      </PHProvider>
     </html>
   )
 }

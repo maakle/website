@@ -36,6 +36,7 @@
     "next": "14.2.4",
     "next-themes": "^0.2.1",
     "postcss": "8.4.31",
+    "posthog-js": "^1.139.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-github-calendar": "^4.1.5",
