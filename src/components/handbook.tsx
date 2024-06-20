@@ -66,6 +66,20 @@ export function Handbook() {
         <li>Don&apos;t bring me the problem, but the solution</li>
         <li>Don&apos;t ask for permission, but for forgiveness</li>
       </ul>
+
+      <p className="pt-6 font-bold">API</p>
+      <ul className="list-disc space-y-2 px-5">
+        <li>
+          If it&apos;s not in my calendar, high chance I won&apos;t show up.
+        </li>
+        <li>If the meeting could be an email, it should be an email</li>
+        <li>
+          I usually respond within 24-48h. If I take longer, I don&apos;t
+          consider it urgent. If you need an answer earlier, feel free ping me
+        </li>
+        <li>I usually only take meetings in the afternoon</li>
+        <li>Meetings should be max 30 minutes or 1.5h workshops</li>
+      </ul>
     </div>
   )
 }
