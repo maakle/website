@@ -70,7 +70,7 @@ export function Handbook() {
       <p className="pt-6 font-bold">API</p>
       <ul className="list-disc space-y-2 px-5">
         <li>
-          If it&apos;s not in my calendar, high chance I won&apos;t show up.
+          If it&apos;s not in my calendar, high chance I won&apos;t show up
         </li>
         <li>If the meeting could be an email, it should be an email</li>
         <li>
