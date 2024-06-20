@@ -4,6 +4,7 @@ import { Metadata, Viewport } from "next"
 import dynamic from "next/dynamic"
 import { Inter } from "next/font/google"
 import { GoogleAnalytics } from "@next/third-parties/google"
+import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 
 import { siteConfig } from "@/config/site"
@@ -95,6 +96,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
             <div className="flex min-h-screen flex-col px-4 py-4 md:container md:w-[45rem] md:px-0 md:py-8">
               <Navbar />
               <SpeedInsights />
+              <Analytics />
               <PostHogPageView />
               <GoogleAnalytics
                 gaId={process.env.NEXT_PUBLIC_GOOGLE_TAG_ID ?? ""}
