@@ -25,24 +25,30 @@ export function Handbook() {
             Midlane
           </a>
         </li>
-        <li>Loves open-source</li>
+        <li>
+          Worked as fullstack software engineer on mobile and web applications
+        </li>
+        <li>Loves open-source software</li>
       </ul>
 
       <p className="pt-6 font-bold">Values, Principles, Beliefs</p>
       <ul className="list-disc space-y-2 px-5">
-        <li>We solve the hard problems and make our customers the heros</li>
+        <li>You can usually reach 80% of the value in 20% of the time</li>
         <li>Engineering velocity is the most important metric to optimize</li>
+        <li>
+          Solve the hard problems for your customers and make them the heros
+        </li>
         <li>I care a lot about UI & UX</li>
         <li>
-          Done means code that runs in production and is used by customers
+          Done means it runs in production and is used by customers flawless
         </li>
-        <li>Processes kills most innovation</li>
+        <li>Processes kills most of a startups innovation</li>
         <li>
-          It&apos;s better to suffer a short period a lot, than a long time a
-          little bit
+          Better to suffer a lot a short period of time, than only a little over
+          a long time
         </li>
         <li>If you truly care about a problem you can&apos;t sleep at night</li>
-        <li>The best people want to play in a Championship team</li>
+        <li>The best people want to play in a championship team</li>
       </ul>
 
       <p className="pt-6 font-bold">Work Style</p>
