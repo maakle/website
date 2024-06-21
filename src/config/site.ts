@@ -7,7 +7,7 @@ export const siteConfig: SiteConfig = {
   author: "maakle",
   description: "Maakle's website",
   url: env.NEXT_PUBLIC_APP_URL,
-  ogImage: `${env.NEXT_PUBLIC_APP_URL}/og.jpg`,
+  ogImage: `${env.NEXT_PUBLIC_APP_URL}/og.png`,
   links: {
     github: "https://github.com/maakle",
     twitter: "https://twitter.com/maaklen",
