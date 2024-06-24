@@ -40,7 +40,7 @@ export function Handbook() {
         </li>
         <li>I care a lot about UI & UX</li>
         <li>
-          Done means it runs in production and is used by customers flawless
+          Done means it runs in production and is used by customers flawlessly
         </li>
         <li>Processes kills most of a startups innovation</li>
         <li>
