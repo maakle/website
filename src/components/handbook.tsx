@@ -75,7 +75,8 @@ export function Handbook() {
         <li>If the meeting could be an email, it should be an email</li>
         <li>
           I usually respond within 24-48h. If I take longer, I don&apos;t
-          consider it urgent. If you need an answer earlier, feel free ping me
+          consider it urgent. If you need an answer earlier, feel free to ping
+          me
         </li>
         <li>I usually only take meetings in the afternoon</li>
         <li>Meetings should be max 30 minutes or 1.5h workshops</li>
