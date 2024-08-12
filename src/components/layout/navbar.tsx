@@ -68,7 +68,7 @@ export default function Navbar() {
                     <a
                       className="rounded-md px-3 py-2 hover:bg-muted"
                       target="_blank"
-                      href="https://maakle.medium.com"
+                      href="https://blog.maakle.com"
                     >
                       Blog
                     </a>
@@ -127,7 +127,7 @@ export default function Navbar() {
                   <a
                     className="block rounded-md py-2 pl-3 pr-4 text-base font-medium hover:bg-muted"
                     target="_blank"
-                    href="https://maakle.medium.com"
+                    href="https://blog.maakle.com"
                   >
                     Blog
                   </a>
