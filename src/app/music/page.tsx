@@ -14,6 +14,16 @@ export default async function Music() {
           Music
         </HeadingText>
         <SoundCloudEmbedded
+          url="https://soundcloud.com/avenmusik/roofs-of-berlin"
+          height="150px"
+          showComments={true}
+        />
+        <SoundCloudEmbedded
+          url="https://soundcloud.com/avenmusik/schliersee-2024"
+          height="150px"
+          showComments={true}
+        />
+        <SoundCloudEmbedded
           url="https://soundcloud.com/avenmusik/aven-live-at-project-rabbit-hole"
           height="150px"
           showComments={true}
