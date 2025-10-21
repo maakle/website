@@ -11,7 +11,7 @@ export const siteConfig: SiteConfig = {
   links: {
     github: "https://github.com/redpangilinan",
     facebook: "https://facebook.com/redpangilinan15",
-    twitter: "https://twitter.com/_rdev7",
+    twitter: "https://twitter.com/redpngilinan",
     linkedin: "https://www.linkedin.com/in/jan-reynald-pangilinan",
   },
 }
