@@ -73,15 +73,16 @@ export default async function Home() {
             <div className="flex items-center justify-between">
               <div>
                 <div className="text-base font-medium">
-                  {codingData.data!
-                    .human_readable_total_including_other_language || "Unknown"}
+                  {codingData?.data
+                    ?.human_readable_total_including_other_language ||
+                    "Unknown"}
                 </div>
                 <div className="text-sm text-muted-foreground">
                   Total coding time
                 </div>
               </div>
               <div className="text-sm text-muted-foreground">
-                {codingData.data!.human_readable_range || "Unknown time range"}
+                {codingData?.data?.human_readable_range || "Unknown time range"}
               </div>
             </div>
           </div>
@@ -89,25 +90,25 @@ export default async function Home() {
             <div className="flex items-center justify-between">
               <div>
                 <div className="text-base font-medium">
-                  {codingData.data!.languages?.[0]?.name || "Unknown"}
+                  {codingData?.data?.languages?.[0]?.name || "Unknown"}
                 </div>
                 <div className="text-sm text-muted-foreground">
                   Favorite language
                 </div>
               </div>
               <div className="text-sm text-muted-foreground">
-                {codingData.data!.languages?.[0]?.text || "Unknown language"}
+                {codingData?.data?.languages?.[0]?.text || "Unknown language"}
               </div>
             </div>
           </div>
 
-          {codingData.data!.languages &&
-            codingData.data!.languages.length > 0 && (
+          {codingData?.data?.languages &&
+            codingData.data?.languages.length > 0 && (
               <div className="text-sm">
                 <span className="text-muted-foreground">Top Languages: </span>
                 <span className="font-medium">
-                  {codingData
-                    .data!.languages.slice(0, 10)
+                  {codingData?.data?.languages
+                    .slice(0, 10)
                     .map((lang, index) => (
                       <span key={index}>
                         {lang.name}{" "}
@@ -115,7 +116,7 @@ export default async function Home() {
                           ({lang.text})
                         </span>
                         {index <
-                        Math.min(codingData.data?.languages?.length || 0, 10) -
+                        Math.min(codingData?.data?.languages?.length || 0, 10) -
                           1
                           ? ", "
                           : ""}
