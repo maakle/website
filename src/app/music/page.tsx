@@ -14,32 +14,37 @@ export default async function Music() {
           Music
         </HeadingText>
         <SoundCloudEmbedded
-          url="https://soundcloud.com/avenmusik/roofs-of-berlin"
+          url="https://soundcloud.com/klenksy/sunset-over-malaga-2025"
           height="150px"
           showComments={true}
         />
         <SoundCloudEmbedded
-          url="https://soundcloud.com/avenmusik/schliersee-2024"
+          url="https://soundcloud.com/klenksy/roofs-of-berlin"
           height="150px"
           showComments={true}
         />
         <SoundCloudEmbedded
-          url="https://soundcloud.com/avenmusik/aven-live-at-project-rabbit-hole"
+          url="https://soundcloud.com/klenksy/schliersee-2024"
           height="150px"
           showComments={true}
         />
         <SoundCloudEmbedded
-          url="https://soundcloud.com/avenmusik/every-day-i-dream"
+          url="https://soundcloud.com/klenksy/aven-live-at-project-rabbit-hole"
           height="150px"
           showComments={true}
         />
         <SoundCloudEmbedded
-          url="https://soundcloud.com/avenmusik/tribal-fever"
+          url="https://soundcloud.com/klenksy/every-day-i-dream"
           height="150px"
           showComments={true}
         />
         <SoundCloudEmbedded
-          url="https://soundcloud.com/avenmusik/into-the-forest"
+          url="https://soundcloud.com/klenksy/tribal-fever"
+          height="150px"
+          showComments={true}
+        />
+        <SoundCloudEmbedded
+          url="https://soundcloud.com/klenksy/into-the-forest"
           height="150px"
           showComments={true}
         />
