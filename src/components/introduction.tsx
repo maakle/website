@@ -17,14 +17,14 @@ export function Introduction() {
         >
           Kombo
         </a>
-        . Previously I built & sold 2 tech startups. One was called
+        . Previously I built & sold 2 tech startups. One was called{" "}
         <a
           className="font-bold underline"
           target="_blank"
           href="https://www.midlane.com"
         >
           Midlane
-        </a>, a HR workforce management app for frontline workers. The other one was called 
+        </a>, a HR workforce management app for frontline workers. The other one was called{" "}
         <a
           className="font-bold underline"
           target="_blank"
