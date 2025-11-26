@@ -9,23 +9,29 @@ export function Introduction() {
       <p>Hey, I&apos;m Mathias! 👋</p>
       <p>
         I&apos;m a full-stack developer & tech entrepreneur based in Berlin.
-        Currently, I work as CTO at{" "}
+        Currently, I work as Head of Engineering at{" "}
         <a
           className="font-bold underline"
           target="_blank"
-          href="https://midlane.com"
+          href="https://kombo.dev"
+        >
+          Kombo
+        </a>
+        . Previously I built & sold 2 tech startups. One was called
+        <a
+          className="font-bold underline"
+          target="_blank"
+          href="https://www.midlane.com"
         >
           Midlane
-        </a>
-        . Previously I built & sold a digital identity company called{" "}
+        </a>, a HR workforce management app for frontline workers. The other one was called 
         <a
           className="font-bold underline"
           target="_blank"
           href="https://passbase.com"
         >
           Passbase
-        </a>
-        .
+        </a>, a digital identity company in the fintech and web3 space.
       </p>
       <p>
         My first programming love was iOS development and Swift. Over the years
