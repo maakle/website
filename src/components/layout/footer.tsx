@@ -4,7 +4,7 @@ import { siteConfig } from "@/config/site"
 
 export default function Footer() {
   return (
-    <footer className="mt-auto block space-y-1 px-4 pb-2 pt-4 text-sm text-zinc-500 dark:text-zinc-400">
+    <footer className="mt-auto flex items-center justify-between pb-2 pt-4 text-sm text-zinc-500 dark:text-zinc-400">
       <div>
         © {new Date().getFullYear()}{" "}
         <a
