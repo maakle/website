@@ -22,8 +22,8 @@ export default function ImpressumPage() {
           Mathias Klenk
           <br />
           E-Mail:{" "}
-          <a href="mailto:hello@maakle.com" className="underline">
-            hello@maakle.com
+          <a href="mailto:m@maakle.com" className="underline">
+            m@maakle.com
           </a>
         </p>
       </div>
