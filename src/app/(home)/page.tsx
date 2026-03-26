@@ -21,22 +21,20 @@ interface ResponseData {
 }
 
 export default async function Home() {
-  let data: RepoData | Repo[] = []
-  let codingData: ResponseData | null = null
-
-  try {
-    data = (await getRepo()) as Repo[] | RepoData
-  } catch (error) {
-    console.error("Failed to fetch GitHub repos:", error)
-    data = { error: "Failed to fetch projects" }
-  }
-
-  try {
-    codingData = (await getCodingStats()) as ResponseData
-  } catch (error) {
-    console.error("Failed to fetch coding stats:", error)
-    codingData = { error: "Failed to fetch coding stats" }
-  }
+  const [data, codingData] = await Promise.all([
+    getRepo()
+      .then((res) => res as Repo[] | RepoData)
+      .catch((error) => {
+        console.error("Failed to fetch GitHub repos:", error)
+        return { error: "Failed to fetch projects" } as RepoData
+      }),
+    getCodingStats()
+      .then((res) => res as ResponseData)
+      .catch((error) => {
+        console.error("Failed to fetch coding stats:", error)
+        return { error: "Failed to fetch coding stats" } as ResponseData
+      }),
+  ])
 
   const hasError = !data || "error" in data
   const hasValidProjects = !hasError && Array.isArray(data) && data.length > 0
