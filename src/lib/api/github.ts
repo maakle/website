@@ -6,9 +6,9 @@ const apiUrl = env.GH_API_URL
 
 // Instantiate and configure wretch
 const api = wretch(apiUrl, {
-  cache: "no-store",
+  next: { revalidate: 3600 },
   mode: "cors",
-})
+} as RequestInit)
   .errorType("json")
   .resolve((r) => r.json())
 
