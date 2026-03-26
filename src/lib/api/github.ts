@@ -13,16 +13,9 @@ const api = wretch(apiUrl, {
 
 export const getRepo = async () => {
   try {
-    const response = await api.get("/?username=redpangilinan")
-
-    if (!response || !Array.isArray(response) || response.length === 0) {
-      console.error("Invalid response format:", response)
-      return { error: "Invalid response from GitHub API" }
-    }
-
-    return response
+    return await api.get("/?username=maakle")
   } catch (error) {
-    console.error("Error fetching GitHub data:", error)
-    return { error: "Failed to fetch repository data" }
+    console.error("Error fetching data:", error)
+    return { error: "Failed fetching data" }
   }
 }
