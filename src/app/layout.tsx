@@ -2,10 +2,8 @@ import "@/styles/globals.css"
 
 import { Metadata, Viewport } from "next"
 import { Inter } from "next/font/google"
-import Script from "next/script"
-
 import { siteConfig } from "@/config/site"
-import { cn, env } from "@/lib/utils"
+import { cn } from "@/lib/utils"
 import Footer from "@/components/layout/footer"
 import Navbar from "@/components/layout/navbar"
 import { ThemeProvider } from "@/components/theme-provider"
@@ -89,11 +87,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
             <Footer />
           </div>
         </ThemeProvider>
-        <Script
-          strategy="afterInteractive"
-          data-goatcounter={env.GOATCOUNTER_URL}
-          src="//gc.zgo.at/count.js"
-        />
       </body>
     </html>
   )
