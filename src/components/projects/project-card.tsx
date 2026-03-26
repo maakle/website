@@ -9,30 +9,23 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ project }: ProjectCardProps) {
-  const {
-    repo = "Unknown Project",
-    description = "No description available",
-    stars = 0,
-    link = "#",
-  } = project || {}
-
   return (
     <Link
       target="_blank"
-      href={link}
+      href={project.link}
       rel="noopener noreferrer"
-      aria-label={repo}
-      className="flex flex-col justify-between gap-2 rounded p-4 hover:bg-muted"
+      aria-label={project.repo}
+      className="flex flex-col justify-between gap-2 rounded-md p-4 hover:bg-muted"
     >
       <div className="flex flex-col gap-1">
-        <CardTitle className="text-base">{repo}</CardTitle>
+        <CardTitle className="text-base">{project.repo}</CardTitle>
         <CardDescription className="line-clamp-2 text-sm font-light">
-          {description}
+          {project.description}
         </CardDescription>
       </div>
       <CardDescription className="flex items-center gap-1">
         <Star className="h-4 w-4" />
-        {stars}
+        {project.stars}
       </CardDescription>
     </Link>
   )
