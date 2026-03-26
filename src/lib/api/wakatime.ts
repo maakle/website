@@ -2,7 +2,9 @@ import wretch from "wretch"
 
 import { env } from "../utils"
 
-const api = wretch("https://wakatime.com", { cache: "no-store" })
+const api = wretch("https://wakatime.com", {
+  next: { revalidate: 3600 },
+} as RequestInit)
   .errorType("json")
   .resolve((r) => r.json())
 
