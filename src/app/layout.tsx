@@ -1,7 +1,7 @@
 import "@/styles/globals.css"
 
+import { Suspense } from "react"
 import { Metadata, Viewport } from "next"
-import dynamic from "next/dynamic"
 import { Inter } from "next/font/google"
 import { GoogleAnalytics } from "@next/third-parties/google"
 import { Analytics } from "@vercel/analytics/react"
@@ -13,11 +13,8 @@ import Footer from "@/components/layout/footer"
 import Navbar from "@/components/layout/navbar"
 import { ThemeProvider } from "@/components/theme-provider"
 
+import PostHogPageView from "./PostHogPageView"
 import { PHProvider } from "./providers"
-
-const PostHogPageView = dynamic(() => import("./PostHogPageView"), {
-  ssr: false,
-})
 
 const inter = Inter({ subsets: ["latin"], display: "swap" })
 
@@ -97,7 +94,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
               <Navbar />
               <SpeedInsights />
               <Analytics />
-              <PostHogPageView />
+              <Suspense fallback={null}>
+                <PostHogPageView />
+              </Suspense>
               <GoogleAnalytics
                 gaId={process.env.NEXT_PUBLIC_GOOGLE_TAG_ID ?? ""}
               />
