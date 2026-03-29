@@ -5,7 +5,7 @@ import { HeadingText } from "@/components/common/heading-text"
 import { ActivityChart } from "@/components/statistics/activity-chart"
 import { RecentActivities } from "@/components/statistics/recent-activities"
 import { StravaCalendar } from "@/components/statistics/strava-calendar"
-import { getActivities } from "@/lib/api/strava"
+import { getActivities, getRecentActivityCalories } from "@/lib/api/strava"
 import {
   buildCalendarData,
   buildMonthlyData,
@@ -24,7 +24,8 @@ export default async function Stats() {
 
   const calendarData = buildCalendarData(activities)
   const monthlyData = buildMonthlyData(activities)
-  const recentData = buildRecentActivities(activities)
+  const caloriesMap = await getRecentActivityCalories(activities)
+  const recentData = buildRecentActivities(activities, caloriesMap)
   const total = totalActivityCount(activities)
 
   return (

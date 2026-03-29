@@ -38,9 +38,15 @@ export function RecentActivities({ activities }: Props) {
               </div>
             </div>
             <div className="text-right text-xs text-zinc-500 dark:text-zinc-400">
-              <div>{activity.distance}</div>
+              <div>
+                {[
+                  activity.distance !== "0 m" ? activity.distance : null,
+                  activity.calories > 0 ? `${activity.calories} kcal` : null,
+                ]
+                  .filter(Boolean)
+                  .join(" | ") || "\u2014"}
+              </div>
               <div>{activity.movingTime}</div>
-              {activity.calories > 0 && <div>{activity.calories} kcal</div>}
             </div>
           </div>
         ))}

@@ -113,6 +113,7 @@ export function buildMonthlyData(activities: StravaActivity[]): MonthlyCount[] {
 
 export function buildRecentActivities(
   activities: StravaActivity[],
+  caloriesMap?: Map<number, number>,
   limit = 5
 ): RecentActivity[] {
   return activities
@@ -127,7 +128,7 @@ export function buildRecentActivities(
       type: a.type,
       distance: formatDistance(a.distance),
       movingTime: formatMovingTime(a.moving_time),
-      calories: Math.round(a.kilojoules ?? 0),
+      calories: caloriesMap?.get(a.id) ?? Math.round(a.kilojoules ?? 0),
       date: formatDate(a.start_date_local),
       icon: getActivityIcon(a.type),
     }))

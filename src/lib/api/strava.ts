@@ -7,6 +7,7 @@ interface TokenResponse {
 }
 
 export interface StravaActivity {
+  id: number
   name: string
   type: string
   sport_type: string
@@ -15,6 +16,10 @@ export interface StravaActivity {
   kilojoules: number
   start_date: string
   start_date_local: string
+}
+
+interface DetailedActivity {
+  calories: number
 }
 
 async function refreshAccessToken(): Promise<string> {
@@ -75,5 +80,55 @@ export async function getActivities(): Promise<StravaActivity[]> {
   } catch (error) {
     console.error("Error fetching Strava activities:", error)
     return []
+  }
+}
+
+export async function getActivityCalories(
+  accessToken: string,
+  activityId: number
+): Promise<number> {
+  try {
+    const res = await fetch(
+      `https://www.strava.com/api/v3/activities/${activityId}?include_all_efforts=false`,
+      {
+        headers: { Authorization: `Bearer ${accessToken}` },
+        next: { revalidate: 3600 },
+      } as RequestInit
+    )
+    if (!res.ok) return 0
+    const data: DetailedActivity = await res.json()
+    return Math.round(data.calories ?? 0)
+  } catch {
+    return 0
+  }
+}
+
+export async function getRecentActivityCalories(
+  activities: StravaActivity[],
+  limit = 5
+): Promise<Map<number, number>> {
+  if (!env.STRAVA_CLIENT_ID || !env.STRAVA_CLIENT_SECRET || !env.STRAVA_REFRESH_TOKEN) {
+    return new Map()
+  }
+
+  try {
+    const accessToken = await refreshAccessToken()
+    const recent = [...activities]
+      .sort(
+        (a, b) =>
+          new Date(b.start_date_local).getTime() -
+          new Date(a.start_date_local).getTime()
+      )
+      .slice(0, limit)
+
+    const entries = await Promise.all(
+      recent.map(async (a) => {
+        const cal = await getActivityCalories(accessToken, a.id)
+        return [a.id, cal] as [number, number]
+      })
+    )
+    return new Map(entries)
+  } catch {
+    return new Map()
   }
 }
