@@ -3,7 +3,9 @@ import type { StravaActivity } from "@/lib/api/strava"
 export interface CalendarDay {
   date: string
   minutes: number
+  calories: number
   level: 0 | 1 | 2 | 3 | 4
+  caloriesLevel: 0 | 1 | 2 | 3 | 4
 }
 
 export interface MonthlyCount {
@@ -60,11 +62,14 @@ function formatDate(dateStr: string): string {
 
 export function buildCalendarData(activities: StravaActivity[]): CalendarDay[] {
   const minutesByDate = new Map<string, number>()
+  const caloriesByDate = new Map<string, number>()
 
   for (const activity of activities) {
     const date = activity.start_date_local.slice(0, 10)
     const minutes = Math.round(activity.moving_time / 60)
+    const calories = Math.round(activity.kilojoules ?? 0)
     minutesByDate.set(date, (minutesByDate.get(date) ?? 0) + minutes)
+    caloriesByDate.set(date, (caloriesByDate.get(date) ?? 0) + calories)
   }
 
   const days: CalendarDay[] = []
@@ -75,8 +80,10 @@ export function buildCalendarData(activities: StravaActivity[]): CalendarDay[] {
   for (let d = new Date(oneYearAgo); d <= today; d.setDate(d.getDate() + 1)) {
     const dateStr = d.toISOString().slice(0, 10)
     const minutes = minutesByDate.get(dateStr) ?? 0
+    const calories = caloriesByDate.get(dateStr) ?? 0
     const level = minutes === 0 ? 0 : minutes < 30 ? 1 : minutes < 60 ? 2 : minutes < 120 ? 3 : 4
-    days.push({ date: dateStr, minutes, level })
+    const caloriesLevel = calories === 0 ? 0 : calories < 200 ? 1 : calories < 400 ? 2 : calories < 700 ? 3 : 4
+    days.push({ date: dateStr, minutes, calories, level, caloriesLevel })
   }
 
   return days

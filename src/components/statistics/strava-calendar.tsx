@@ -1,3 +1,7 @@
+"use client"
+
+import { useState } from "react"
+
 import type { CalendarDay } from "@/lib/strava-utils"
 
 const COLORS = {
@@ -5,12 +9,16 @@ const COLORS = {
   dark: ["#161b22", "#533112", "#874d20", "#b56a2e", "#e8903e"],
 }
 
+type Mode = "duration" | "calories"
+
 interface Props {
   data: CalendarDay[]
   totalActivities: number
 }
 
 export function StravaCalendar({ data, totalActivities }: Props) {
+  const [mode, setMode] = useState<Mode>("duration")
+
   const blockSize = 10
   const blockMargin = 3
   const step = blockSize + blockMargin
@@ -23,7 +31,7 @@ export function StravaCalendar({ data, totalActivities }: Props) {
 
   const firstDayOfWeek = new Date(data[0]?.date ?? new Date()).getDay()
   for (let i = 0; i < firstDayOfWeek; i++) {
-    currentWeek.push({ date: "", minutes: 0, level: 0 })
+    currentWeek.push({ date: "", minutes: 0, calories: 0, level: 0, caloriesLevel: 0 })
   }
 
   for (const day of data) {
@@ -67,6 +75,17 @@ export function StravaCalendar({ data, totalActivities }: Props) {
   const svgWidth = weeks.length * step - blockMargin
   const svgHeight = labelHeight + 7 * step - blockMargin
 
+  function getLevel(day: CalendarDay): number {
+    return mode === "duration" ? day.level : day.caloriesLevel
+  }
+
+  function getTooltip(day: CalendarDay): string {
+    if (mode === "duration") {
+      return `${day.minutes} min on ${day.date}`
+    }
+    return `${day.calories} kcal on ${day.date}`
+  }
+
   return (
     <div
       style={{
@@ -78,6 +97,50 @@ export function StravaCalendar({ data, totalActivities }: Props) {
         fontSize,
       }}
     >
+      {/* Tab toggle */}
+      <div style={{ display: "flex", justifyContent: "flex-end" }}>
+        <div
+          style={{
+            display: "inline-flex",
+            borderRadius: 6,
+            overflow: "hidden",
+            border: "1px solid rgba(128, 128, 128, 0.2)",
+          }}
+        >
+          <button
+            onClick={() => setMode("duration")}
+            style={{
+              padding: "3px 10px",
+              fontSize: 11,
+              fontWeight: 500,
+              cursor: "pointer",
+              border: "none",
+              background: mode === "duration" ? "var(--strava-level-4)" : "transparent",
+              color: mode === "duration" ? "#fff" : "inherit",
+              transition: "background 0.15s, color 0.15s",
+            }}
+          >
+            Duration
+          </button>
+          <button
+            onClick={() => setMode("calories")}
+            style={{
+              padding: "3px 10px",
+              fontSize: 11,
+              fontWeight: 500,
+              cursor: "pointer",
+              border: "none",
+              borderLeft: "1px solid rgba(128, 128, 128, 0.2)",
+              background: mode === "calories" ? "var(--strava-level-4)" : "transparent",
+              color: mode === "calories" ? "#fff" : "inherit",
+              transition: "background 0.15s, color 0.15s",
+            }}
+          >
+            Calories
+          </button>
+        </div>
+      </div>
+
       <div style={{ maxWidth: "100%", overflowX: "auto", overflowY: "hidden", paddingBottom: 2 }}>
         <svg
           width={svgWidth}
@@ -117,10 +180,10 @@ export function StravaCalendar({ data, totalActivities }: Props) {
                   rx={2}
                   ry={2}
                   style={day.date ? {} : { opacity: 0 }}
-                  fill={`var(--strava-level-${day.level})`}
+                  fill={`var(--strava-level-${getLevel(day)})`}
                 >
                   {day.date && (
-                    <title>{`${day.minutes} min on ${day.date}`}</title>
+                    <title>{getTooltip(day)}</title>
                   )}
                 </rect>
               ))
@@ -129,7 +192,7 @@ export function StravaCalendar({ data, totalActivities }: Props) {
         </svg>
       </div>
 
-      {/* Footer — matches react-activity-calendar layout */}
+      {/* Footer */}
       <div
         style={{
           display: "flex",

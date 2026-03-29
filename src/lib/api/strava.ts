@@ -12,6 +12,7 @@ export interface StravaActivity {
   sport_type: string
   distance: number
   moving_time: number
+  kilojoules: number
   start_date: string
   start_date_local: string
 }
