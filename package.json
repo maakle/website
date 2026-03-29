@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "dev": "NODE_OPTIONS='--no-experimental-webstorage' next dev",
+    "build": "NODE_OPTIONS='--no-experimental-webstorage' next build",
+    "start": "NODE_OPTIONS='--no-experimental-webstorage' next start",
     "lint": "next lint",
     "format": "pnpm prettier ./src --write",
     "format:check": "pnpm prettier ./src --check"
@@ -37,7 +37,7 @@
     "clsx": "^1.2.1",
     "lucide-react": "^0.257.0",
     "next": "15.3.2",
-    "next-themes": "^0.4.4",
+    "next-themes": "0.4.6",
     "postcss": "8.4.31",
     "posthog-js": "^1.139.3",
     "react": "19.1.0",
