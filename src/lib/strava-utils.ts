@@ -18,6 +18,7 @@ export interface RecentActivity {
   type: string
   distance: string
   movingTime: string
+  calories: number
   date: string
   icon: string
 }
@@ -126,6 +127,7 @@ export function buildRecentActivities(
       type: a.type,
       distance: formatDistance(a.distance),
       movingTime: formatMovingTime(a.moving_time),
+      calories: Math.round(a.kilojoules ?? 0),
       date: formatDate(a.start_date_local),
       icon: getActivityIcon(a.type),
     }))

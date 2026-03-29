@@ -40,6 +40,7 @@ export function RecentActivities({ activities }: Props) {
             <div className="text-right text-xs text-zinc-500 dark:text-zinc-400">
               <div>{activity.distance}</div>
               <div>{activity.movingTime}</div>
+              {activity.calories > 0 && <div>{activity.calories} kcal</div>}
             </div>
           </div>
         ))}
