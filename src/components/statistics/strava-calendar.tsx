@@ -115,8 +115,8 @@ export function StravaCalendar({ data, totalActivities }: Props) {
               fontWeight: 500,
               cursor: "pointer",
               border: "none",
-              background: mode === "duration" ? "var(--strava-level-4)" : "transparent",
-              color: mode === "duration" ? "#fff" : "inherit",
+              background: mode === "duration" ? "rgba(128, 128, 128, 0.25)" : "transparent",
+              color: "inherit",
               transition: "background 0.15s, color 0.15s",
             }}
           >
@@ -131,8 +131,8 @@ export function StravaCalendar({ data, totalActivities }: Props) {
               cursor: "pointer",
               border: "none",
               borderLeft: "1px solid rgba(128, 128, 128, 0.2)",
-              background: mode === "calories" ? "var(--strava-level-4)" : "transparent",
-              color: mode === "calories" ? "#fff" : "inherit",
+              background: mode === "calories" ? "rgba(128, 128, 128, 0.25)" : "transparent",
+              color: "inherit",
               transition: "background 0.15s, color 0.15s",
             }}
           >

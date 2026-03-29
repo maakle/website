@@ -24,14 +24,14 @@ export const metadata: Metadata = {
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
+  metadataBase: new URL(siteConfig.url),
   keywords: [
-    "Next.js",
-    "React",
-    "Tailwind CSS",
-    "Radix UI",
-    "shadcn/ui",
-    "React Query",
-    "Portfolio",
+    "Mathias Klenk",
+    "software developer",
+    "portfolio",
+    "web developer",
+    "DJ",
+    "maakle",
   ],
   authors: [
     {
@@ -97,10 +97,12 @@ export default function RootLayout({ children }: RootLayoutProps) {
               <Suspense fallback={null}>
                 <PostHogPageView />
               </Suspense>
-              <GoogleAnalytics
-                gaId={process.env.NEXT_PUBLIC_GOOGLE_TAG_ID ?? ""}
-              />
-              {children}
+              {process.env.NEXT_PUBLIC_GOOGLE_TAG_ID && (
+                <GoogleAnalytics
+                  gaId={process.env.NEXT_PUBLIC_GOOGLE_TAG_ID}
+                />
+              )}
+              <main className="flex-1">{children}</main>
               <Footer />
             </div>
           </ThemeProvider>
