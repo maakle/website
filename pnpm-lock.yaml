@@ -1468,12 +1468,6 @@ packages:
     resolution: {integrity: sha512-QOSvevhslijgYwRx6Rv7zKdMF8lbRmx+uQGx2+vDc+KI/eBnsy9kit5aj23AgGu3pa4t9AgwbnXWqS+iOY+2aA==}
     engines: {node: '>= 6'}
 
-  caniuse-lite@1.0.30001509:
-    resolution: {integrity: sha512-2uDDk+TRiTX5hMcUYT/7CSyzMZxjfGu0vAUjS2g0LSD8UoXOv0LtpH4LxGMemsiPq6LCVIUjNwVM0erkOkGCDA==}
-
-  caniuse-lite@1.0.30001617:
-    resolution: {integrity: sha512-mLyjzNI9I+Pix8zwcrpxEbGlfqOkF9kM3ptzmKNw5tizSyYwMe+nGLTqMK9cO+0E+Bh6TsBxNAaHWEM8xwSsmA==}
-
   caniuse-lite@1.0.30001781:
     resolution: {integrity: sha512-RdwNCyMsNBftLjW6w01z8bKEvT6e/5tpPVEgtn22TiLGlstHOVecsX2KHFkD5e/vRnIE4EGzpuIODb3mtswtkw==}
 
@@ -4376,7 +4370,7 @@ snapshots:
   autoprefixer@10.4.14(postcss@8.4.31):
     dependencies:
       browserslist: 4.21.9
-      caniuse-lite: 1.0.30001509
+      caniuse-lite: 1.0.30001781
       fraction.js: 4.2.0
       normalize-range: 0.1.2
       picocolors: 1.0.0
@@ -4416,14 +4410,14 @@ snapshots:
 
   browserslist@4.21.9:
     dependencies:
-      caniuse-lite: 1.0.30001617
+      caniuse-lite: 1.0.30001781
       electron-to-chromium: 1.4.447
       node-releases: 2.0.12
       update-browserslist-db: 1.0.11(browserslist@4.21.9)
 
   browserslist@4.22.2:
     dependencies:
-      caniuse-lite: 1.0.30001617
+      caniuse-lite: 1.0.30001781
       electron-to-chromium: 1.4.616
       node-releases: 2.0.14
       update-browserslist-db: 1.0.13(browserslist@4.22.2)
@@ -4456,10 +4450,6 @@ snapshots:
   callsites@3.1.0: {}
 
   camelcase-css@2.0.1: {}
-
-  caniuse-lite@1.0.30001509: {}
-
-  caniuse-lite@1.0.30001617: {}
 
   caniuse-lite@1.0.30001781: {}
 
@@ -5427,7 +5417,7 @@ snapshots:
       '@next/env': 16.2.1
       '@swc/helpers': 0.5.15
       baseline-browser-mapping: 2.10.12
-      caniuse-lite: 1.0.30001617
+      caniuse-lite: 1.0.30001781
       postcss: 8.4.31
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
