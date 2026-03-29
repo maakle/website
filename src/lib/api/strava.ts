@@ -37,6 +37,10 @@ async function refreshAccessToken(): Promise<string> {
 }
 
 export async function getActivities(): Promise<StravaActivity[]> {
+  if (!env.STRAVA_CLIENT_ID || !env.STRAVA_CLIENT_SECRET || !env.STRAVA_REFRESH_TOKEN) {
+    return []
+  }
+
   try {
     const accessToken = await refreshAccessToken()
 

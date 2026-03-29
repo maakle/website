@@ -4,9 +4,9 @@ import { z } from "zod"
 export const env = createEnv({
   server: {
     GH_API_URL: z.string().startsWith("https://"),
-    STRAVA_CLIENT_ID: z.string().min(1),
-    STRAVA_CLIENT_SECRET: z.string().min(1),
-    STRAVA_REFRESH_TOKEN: z.string().min(1),
+    STRAVA_CLIENT_ID: z.string().min(1).optional(),
+    STRAVA_CLIENT_SECRET: z.string().min(1).optional(),
+    STRAVA_REFRESH_TOKEN: z.string().min(1).optional(),
   },
   client: {
     NEXT_PUBLIC_APP_URL: z.string().min(1),
