@@ -1,0 +1,5 @@
+{"type":"server-started","port":58625,"host":"127.0.0.1","url_host":"localhost","url":"http://localhost:58625","screen_dir":"/Users/makle/Developer/website/.superpowers/brainstorm/97523-1774803630/content","state_dir":"/Users/makle/Developer/website/.superpowers/brainstorm/97523-1774803630/state"}
+{"type":"screen-added","file":"/Users/makle/Developer/website/.superpowers/brainstorm/97523-1774803630/content/layout-options.html"}
+{"type":"screen-added","file":"/Users/makle/Developer/website/.superpowers/brainstorm/97523-1774803630/content/component-design.html"}
+{"type":"screen-added","file":"/Users/makle/Developer/website/.superpowers/brainstorm/97523-1774803630/content/waiting.html"}
+{"type":"server-stopped","reason":"idle timeout"}

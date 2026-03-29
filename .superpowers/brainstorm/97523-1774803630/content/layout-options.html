@@ -1,0 +1,122 @@
+<h2>Statistics Page Layout</h2>
+<p class="subtitle">How should the Strava sections sit alongside your GitHub calendar?</p>
+
+<div class="options">
+  <div class="option" data-choice="a" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>Stacked Sections</h3>
+      <p>GitHub calendar on top, then Strava calendar, then trend charts, then recent activities — all full-width, scrolling vertically.</p>
+      <div class="mockup" style="margin-top: 12px;">
+        <div class="mockup-body" style="padding: 16px; font-size: 13px;">
+          <div style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 12px; margin-bottom: 8px;">
+            <strong>GitHub Contributions</strong>
+            <div style="display: flex; gap: 2px; margin-top: 6px; flex-wrap: wrap;">
+              <span style="width:8px;height:8px;background:#dcfce7;border-radius:2px;display:inline-block"></span>
+              <span style="width:8px;height:8px;background:#86efac;border-radius:2px;display:inline-block"></span>
+              <span style="width:8px;height:8px;background:#22c55e;border-radius:2px;display:inline-block"></span>
+              <span style="width:8px;height:8px;background:#dcfce7;border-radius:2px;display:inline-block"></span>
+              <span style="width:8px;height:8px;background:#86efac;border-radius:2px;display:inline-block"></span>
+              <span style="width:8px;height:8px;background:#dcfce7;border-radius:2px;display:inline-block"></span>
+              <span style="width:8px;height:8px;background:#22c55e;border-radius:2px;display:inline-block"></span>
+            </div>
+          </div>
+          <div style="background: #fef3c7; border: 1px solid #fde68a; border-radius: 8px; padding: 12px; margin-bottom: 8px;">
+            <strong>Strava Activity Calendar</strong>
+            <div style="display: flex; gap: 2px; margin-top: 6px; flex-wrap: wrap;">
+              <span style="width:8px;height:8px;background:#fef9c3;border-radius:2px;display:inline-block"></span>
+              <span style="width:8px;height:8px;background:#fde047;border-radius:2px;display:inline-block"></span>
+              <span style="width:8px;height:8px;background:#f59e0b;border-radius:2px;display:inline-block"></span>
+              <span style="width:8px;height:8px;background:#fef9c3;border-radius:2px;display:inline-block"></span>
+              <span style="width:8px;height:8px;background:#fde047;border-radius:2px;display:inline-block"></span>
+              <span style="width:8px;height:8px;background:#fef9c3;border-radius:2px;display:inline-block"></span>
+              <span style="width:8px;height:8px;background:#f59e0b;border-radius:2px;display:inline-block"></span>
+            </div>
+          </div>
+          <div style="background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px; margin-bottom: 8px;">
+            <strong>Weekly Trends</strong>
+            <div style="display:flex;align-items:flex-end;gap:4px;height:40px;margin-top:6px;">
+              <div style="width:12px;height:15px;background:#93c5fd;border-radius:2px"></div>
+              <div style="width:12px;height:25px;background:#60a5fa;border-radius:2px"></div>
+              <div style="width:12px;height:20px;background:#93c5fd;border-radius:2px"></div>
+              <div style="width:12px;height:35px;background:#3b82f6;border-radius:2px"></div>
+              <div style="width:12px;height:30px;background:#60a5fa;border-radius:2px"></div>
+              <div style="width:12px;height:18px;background:#93c5fd;border-radius:2px"></div>
+            </div>
+          </div>
+          <div style="background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 12px;">
+            <strong>Recent Activities</strong>
+            <div style="margin-top: 6px; font-size: 12px; color: #6b7280;">
+              <div style="padding: 4px 0; border-bottom: 1px solid #f3f4f6;">🏃 Morning Run — 5.2 km — 28 min</div>
+              <div style="padding: 4px 0; border-bottom: 1px solid #f3f4f6;">🚴 Evening Ride — 22 km — 45 min</div>
+              <div style="padding: 4px 0;">🏊 Pool Swim — 1.5 km — 35 min</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="b" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>Tabbed View</h3>
+      <p>Two tabs: "Code" (GitHub calendar) and "Fitness" (all Strava content). Keeps the page clean and each domain focused.</p>
+      <div class="mockup" style="margin-top: 12px;">
+        <div class="mockup-body" style="padding: 16px; font-size: 13px;">
+          <div style="display:flex; gap:0; margin-bottom: 12px;">
+            <div style="padding: 8px 20px; background: #f3f4f6; border: 1px solid #e5e7eb; border-bottom: none; border-radius: 8px 8px 0 0; font-weight: 600; color: #9ca3af;">Code</div>
+            <div style="padding: 8px 20px; background: white; border: 1px solid #e5e7eb; border-bottom: 2px solid #f59e0b; border-radius: 8px 8px 0 0; font-weight: 600; color: #f59e0b;">Fitness</div>
+          </div>
+          <div style="border: 1px solid #e5e7eb; border-radius: 0 8px 8px 8px; padding: 12px;">
+            <div style="background: #fef3c7; border: 1px solid #fde68a; border-radius: 8px; padding: 10px; margin-bottom: 8px;">
+              <strong style="font-size:12px">Activity Calendar</strong>
+            </div>
+            <div style="background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 10px; margin-bottom: 8px;">
+              <strong style="font-size:12px">Trend Charts</strong>
+            </div>
+            <div style="background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 10px;">
+              <strong style="font-size:12px">Recent Activities</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="c" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>Mixed Grid</h3>
+      <p>Both calendars side-by-side on top, then trend chart full-width below, then recent activities. More compact on wide screens.</p>
+      <div class="mockup" style="margin-top: 12px;">
+        <div class="mockup-body" style="padding: 16px; font-size: 13px;">
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 8px;">
+            <div style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 10px;">
+              <strong style="font-size:12px">GitHub</strong>
+              <div style="display: flex; gap: 2px; margin-top: 4px;">
+                <span style="width:6px;height:6px;background:#86efac;border-radius:1px;display:inline-block"></span>
+                <span style="width:6px;height:6px;background:#22c55e;border-radius:1px;display:inline-block"></span>
+                <span style="width:6px;height:6px;background:#dcfce7;border-radius:1px;display:inline-block"></span>
+              </div>
+            </div>
+            <div style="background: #fef3c7; border: 1px solid #fde68a; border-radius: 8px; padding: 10px;">
+              <strong style="font-size:12px">Strava</strong>
+              <div style="display: flex; gap: 2px; margin-top: 4px;">
+                <span style="width:6px;height:6px;background:#fde047;border-radius:1px;display:inline-block"></span>
+                <span style="width:6px;height:6px;background:#f59e0b;border-radius:1px;display:inline-block"></span>
+                <span style="width:6px;height:6px;background:#fef9c3;border-radius:1px;display:inline-block"></span>
+              </div>
+            </div>
+          </div>
+          <div style="background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 10px; margin-bottom: 8px;">
+            <strong style="font-size:12px">Weekly Trends (full width)</strong>
+          </div>
+          <div style="background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 8px; padding: 10px;">
+            <strong style="font-size:12px">Recent Activities (full width)</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

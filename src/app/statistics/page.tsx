@@ -33,30 +33,40 @@ export default async function Stats() {
         <HeadingText subtext="Statistics about my programming and fitness">
           Statistics
         </HeadingText>
-        <div className="flex flex-col gap-4">
-          <Card className="w-full p-3">
-            <GitHubCalendar
-              username="maakle"
-              fontSize={12}
-              blockMargin={3}
-              blockSize={10}
-            />
-          </Card>
+        <div className="flex flex-col gap-6">
+          <section className="space-y-3">
+            <h2 className="text-sm font-medium uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
+              Github Statistics
+            </h2>
+            <Card className="w-full p-3">
+              <GitHubCalendar
+                username="maakle"
+                fontSize={12}
+                blockMargin={3}
+                blockSize={10}
+              />
+            </Card>
+          </section>
 
           {hasStravaData && (
-            <>
-              <Card className="w-full p-3">
-                <StravaCalendar data={calendarData} totalActivities={total} />
-              </Card>
+            <section className="space-y-3">
+              <h2 className="text-sm font-medium uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
+                Strava Statistics
+              </h2>
+              <div className="flex flex-col gap-4">
+                <Card className="w-full p-3">
+                  <StravaCalendar data={calendarData} totalActivities={total} />
+                </Card>
 
-              <Card className="w-full p-3">
-                <ActivityChart data={monthlyData} />
-              </Card>
+                <Card className="w-full p-3">
+                  <ActivityChart data={monthlyData} />
+                </Card>
 
-              <Card className="w-full p-3">
-                <RecentActivities activities={recentData} />
-              </Card>
-            </>
+                <Card className="w-full p-3">
+                  <RecentActivities activities={recentData} />
+                </Card>
+              </div>
+            </section>
           )}
         </div>
       </div>

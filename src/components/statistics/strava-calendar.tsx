@@ -11,14 +11,19 @@ interface Props {
 }
 
 export function StravaCalendar({ data, totalActivities }: Props) {
+  const blockSize = 10
+  const blockMargin = 3
+  const step = blockSize + blockMargin
+  const fontSize = 12
+  const labelHeight = fontSize + 10
+
   // Group days into weeks (columns). Each week has 7 days (Sun-Sat).
   const weeks: CalendarDay[][] = []
   let currentWeek: CalendarDay[] = []
 
-  // Pad the first week with empty days
   const firstDayOfWeek = new Date(data[0]?.date ?? new Date()).getDay()
   for (let i = 0; i < firstDayOfWeek; i++) {
-    currentWeek.push({ date: "", count: 0, level: 0 })
+    currentWeek.push({ date: "", minutes: 0, level: 0 })
   }
 
   for (const day of data) {
@@ -32,8 +37,8 @@ export function StravaCalendar({ data, totalActivities }: Props) {
     weeks.push(currentWeek)
   }
 
-  // Build month labels from the first day of each month appearing in data
-  const monthLabels: { label: string; weekIndex: number }[] = []
+  // Build month labels, skipping any that are too close together
+  const allMonthLabels: { label: string; x: number }[] = []
   let lastMonth = -1
   for (let wi = 0; wi < weeks.length; wi++) {
     for (const day of weeks[wi]) {
@@ -44,82 +49,120 @@ export function StravaCalendar({ data, totalActivities }: Props) {
         const label = new Date(day.date).toLocaleDateString("en-US", {
           month: "short",
         })
-        monthLabels.push({ label, weekIndex: wi })
+        allMonthLabels.push({ label, x: wi * step })
         break
       }
     }
   }
+  // Filter out labels that are too close (less than 3 weeks apart)
+  const minLabelGap = step * 3
+  const monthLabels = allMonthLabels.filter((label, i) => {
+    if (i === 0) {
+      const next = allMonthLabels[1]
+      return !next || next.x - label.x >= minLabelGap
+    }
+    return true
+  })
 
-  const cellSize = 10
-  const cellGap = 3
-  const step = cellSize + cellGap
+  const svgWidth = weeks.length * step - blockMargin
+  const svgHeight = labelHeight + 7 * step - blockMargin
 
   return (
-    <div className="overflow-x-auto">
-      {/* Month labels */}
-      <div className="flex text-xs text-zinc-500 dark:text-zinc-400">
-        {monthLabels.map(({ label, weekIndex }) => (
-          <span
-            key={`${label}-${weekIndex}`}
-            style={{ position: "relative", left: weekIndex * step }}
-            className="absolute"
-          >
-            {label}
-          </span>
-        ))}
+    <div
+      style={{
+        width: "max-content",
+        maxWidth: "100%",
+        display: "flex",
+        flexDirection: "column",
+        gap: 8,
+        fontSize,
+      }}
+    >
+      <div style={{ maxWidth: "100%", overflowX: "auto", overflowY: "hidden", paddingBottom: 2 }}>
+        <svg
+          width={svgWidth}
+          height={svgHeight}
+          viewBox={`0 0 ${svgWidth} ${svgHeight}`}
+          style={{ display: "block", overflow: "visible" }}
+        >
+          <style>{`
+            .strava-calendar text { fill: currentColor; }
+            .strava-calendar rect { stroke: rgba(0,0,0,0.08); stroke-width: 1px; shape-rendering: geometricPrecision; }
+            @media (prefers-color-scheme: dark) {
+              .strava-calendar rect { stroke: rgba(255,255,255,0.04); }
+            }
+          `}</style>
+          <g className="strava-calendar">
+            {/* Month labels */}
+            {monthLabels.map(({ label, x }) => (
+              <text
+                key={`${label}-${x}`}
+                x={x}
+                y={fontSize}
+                fontSize={fontSize}
+              >
+                {label}
+              </text>
+            ))}
+
+            {/* Day cells */}
+            {weeks.map((week, wi) =>
+              week.map((day, di) => (
+                <rect
+                  key={`${wi}-${di}`}
+                  x={wi * step}
+                  y={labelHeight + di * step}
+                  width={blockSize}
+                  height={blockSize}
+                  rx={2}
+                  ry={2}
+                  style={day.date ? {} : { opacity: 0 }}
+                  fill={`var(--strava-level-${day.level})`}
+                >
+                  {day.date && (
+                    <title>{`${day.minutes} min on ${day.date}`}</title>
+                  )}
+                </rect>
+              ))
+            )}
+          </g>
+        </svg>
       </div>
 
-      <svg
-        width={weeks.length * step}
-        height={7 * step}
-        className="mt-5"
-        role="img"
-        aria-label="Strava activity calendar"
+      {/* Footer — matches react-activity-calendar layout */}
+      <div
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          gap: "4px 16px",
+          whiteSpace: "nowrap",
+        }}
       >
-        {weeks.map((week, wi) =>
-          week.map((day, di) => (
-            <rect
-              key={`${wi}-${di}`}
-              x={wi * step}
-              y={di * step}
-              width={cellSize}
-              height={cellSize}
-              rx={2}
-              ry={2}
-              className={day.date ? "" : "opacity-0"}
-              fill={`var(--strava-level-${day.level})`}
-            >
-              {day.date && (
-                <title>
-                  {day.count} {day.count === 1 ? "activity" : "activities"} on{" "}
-                  {day.date}
-                </title>
-              )}
-            </rect>
-          ))
-        )}
-      </svg>
-
-      <div className="mt-2 flex items-center justify-between text-xs text-zinc-500 dark:text-zinc-400">
-        <span>
+        <div>
           {totalActivities} {totalActivities === 1 ? "activity" : "activities"}{" "}
           in the last year
-        </span>
-        <div className="flex items-center gap-1">
-          <span>Less</span>
+        </div>
+        <div
+          style={{
+            marginLeft: "auto",
+            display: "flex",
+            alignItems: "center",
+            gap: blockMargin,
+          }}
+        >
+          <span style={{ marginRight: "0.4em" }}>Less</span>
           {[0, 1, 2, 3, 4].map((level) => (
-            <span
-              key={level}
-              style={{
-                width: cellSize,
-                height: cellSize,
-                borderRadius: 2,
-                display: "inline-block",
-                backgroundColor: `var(--strava-level-${level})`,
-              }}
-            />
+            <svg key={level} width={blockSize} height={blockSize}>
+              <rect
+                width={blockSize}
+                height={blockSize}
+                fill={`var(--strava-level-${level})`}
+                rx={2}
+                ry={2}
+              />
+            </svg>
           ))}
-          <span>More</span>
+          <span style={{ marginLeft: "0.4em" }}>More</span>
         </div>
       </div>
 

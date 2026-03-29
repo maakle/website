@@ -2,7 +2,7 @@ import type { StravaActivity } from "@/lib/api/strava"
 
 export interface CalendarDay {
   date: string
-  count: number
+  minutes: number
   level: 0 | 1 | 2 | 3 | 4
 }
 
@@ -59,11 +59,12 @@ function formatDate(dateStr: string): string {
 }
 
 export function buildCalendarData(activities: StravaActivity[]): CalendarDay[] {
-  const countsByDate = new Map<string, number>()
+  const minutesByDate = new Map<string, number>()
 
   for (const activity of activities) {
     const date = activity.start_date_local.slice(0, 10)
-    countsByDate.set(date, (countsByDate.get(date) ?? 0) + 1)
+    const minutes = Math.round(activity.moving_time / 60)
+    minutesByDate.set(date, (minutesByDate.get(date) ?? 0) + minutes)
   }
 
   const days: CalendarDay[] = []
@@ -73,9 +74,9 @@ export function buildCalendarData(activities: StravaActivity[]): CalendarDay[] {
 
   for (let d = new Date(oneYearAgo); d <= today; d.setDate(d.getDate() + 1)) {
     const dateStr = d.toISOString().slice(0, 10)
-    const count = countsByDate.get(dateStr) ?? 0
-    const level = count === 0 ? 0 : count === 1 ? 1 : count === 2 ? 2 : count === 3 ? 3 : 4
-    days.push({ date: dateStr, count, level })
+    const minutes = minutesByDate.get(dateStr) ?? 0
+    const level = minutes === 0 ? 0 : minutes < 30 ? 1 : minutes < 60 ? 2 : minutes < 120 ? 3 : 4
+    days.push({ date: dateStr, minutes, level })
   }
 
   return days

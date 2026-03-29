@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import {
   Disclosure,
   DisclosureButton,
@@ -15,6 +16,7 @@ import { ModeToggle } from "../mode-toggle"
 
 export default function Navbar() {
   const [navbar, setNavbar] = useState(false)
+  const pathname = usePathname()
 
   const handleClick = async () => {
     setNavbar(false)
@@ -45,51 +47,38 @@ export default function Navbar() {
                 </h1>
               </Link>
               <div className="hidden gap-4 sm:flex">
-                <ul className="flex items-center space-x-2 text-sm text-zinc-500 dark:text-zinc-400">
-                  <li>
-                    <Link
-                      className="rounded-md px-3 py-2 hover:bg-muted"
-                      href="/"
-                      onClick={handleClick}
-                    >
-                      Home
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      className="rounded-md px-3 py-2 hover:bg-muted"
-                      href="/handbook"
-                      onClick={handleClick}
-                    >
-                      Handbook
-                    </Link>
-                  </li>
+                <ul className="flex items-center space-x-2 text-sm">
+                  {[
+                    { href: "/", label: "Home" },
+                    { href: "/handbook", label: "Handbook" },
+                    { href: "/music", label: "Music" },
+                    { href: "/statistics", label: "Statistics" },
+                  ].map(({ href, label }) => {
+                    const isActive = href === "/" ? pathname === "/" : pathname.startsWith(href)
+                    return (
+                      <li key={href}>
+                        <Link
+                          className={`rounded-md px-3 py-2 hover:bg-muted ${
+                            isActive
+                              ? "font-medium text-foreground"
+                              : "text-zinc-500 dark:text-zinc-400"
+                          }`}
+                          href={href}
+                          onClick={handleClick}
+                        >
+                          {label}
+                        </Link>
+                      </li>
+                    )
+                  })}
                   <li>
                     <a
-                      className="rounded-md px-3 py-2 hover:bg-muted"
+                      className="rounded-md px-3 py-2 text-zinc-500 hover:bg-muted dark:text-zinc-400"
                       target="_blank"
                       href="https://www.techfounderstack.com"
                     >
                       Blog
                     </a>
-                  </li>
-                  <li>
-                    <Link
-                      className="rounded-md px-3 py-2 hover:bg-muted"
-                      href="/music"
-                      onClick={handleClick}
-                    >
-                      Music
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      className="rounded-md px-3 py-2 hover:bg-muted"
-                      href="/statistics"
-                      onClick={handleClick}
-                    >
-                      Statistics
-                    </Link>
                   </li>
                 </ul>
                 <ModeToggle />
@@ -109,42 +98,36 @@ export default function Navbar() {
             </div>
             <DisclosurePanel className="rounded-lg p-1 shadow-xl dark:bg-neutral-900 sm:hidden">
               <div className="space-y-1 pb-3 pt-2">
-                <DisclosureButton
-                  as="a"
-                  href="/"
-                  className="block rounded-md py-2 pl-3 pr-4 text-base font-medium hover:bg-muted"
-                >
-                  Home
-                </DisclosureButton>
-                <DisclosureButton
-                  as="a"
-                  href="/handbook"
-                  className="block rounded-md py-2 pl-3 pr-4 text-base font-medium hover:bg-muted"
-                >
-                  Handbook
-                </DisclosureButton>
+                {[
+                  { href: "/", label: "Home" },
+                  { href: "/handbook", label: "Handbook" },
+                  { href: "/music", label: "Music" },
+                  { href: "/statistics", label: "Statistics" },
+                ].map(({ href, label }) => {
+                  const isActive = href === "/" ? pathname === "/" : pathname.startsWith(href)
+                  return (
+                    <DisclosureButton
+                      key={href}
+                      as="a"
+                      href={href}
+                      className={`block rounded-md py-2 pl-3 pr-4 text-base hover:bg-muted ${
+                        isActive
+                          ? "font-medium text-foreground"
+                          : "text-zinc-500 dark:text-zinc-400"
+                      }`}
+                    >
+                      {label}
+                    </DisclosureButton>
+                  )
+                })}
                 <DisclosureButton className="w-full text-left">
                   <a
-                    className="block rounded-md py-2 pl-3 pr-4 text-base font-medium hover:bg-muted"
+                    className="block rounded-md py-2 pl-3 pr-4 text-base text-zinc-500 hover:bg-muted dark:text-zinc-400"
                     target="_blank"
                     href="https://www.techfounderstack.com"
                   >
                     Blog
                   </a>
-                </DisclosureButton>
-                <DisclosureButton
-                  as="a"
-                  href="/music"
-                  className="block rounded-md py-2 pl-3 pr-4 text-base font-medium hover:bg-muted"
-                >
-                  Music
-                </DisclosureButton>
-                <DisclosureButton
-                  as="a"
-                  href="/statistics"
-                  className="block rounded-md py-2 pl-3 pr-4 text-base font-medium hover:bg-muted"
-                >
-                  Statistics
                 </DisclosureButton>
                 <ModeToggle />
               </div>

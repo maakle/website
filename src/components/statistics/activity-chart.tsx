@@ -21,22 +21,15 @@ export function ActivityChart({ data }: Props) {
       <h3 className="mb-3 text-sm font-medium text-zinc-500 dark:text-zinc-400">
         Monthly activities (last 12 months)
       </h3>
-      <ResponsiveContainer width="100%" height={200}>
-        <BarChart data={data}>
+      <ResponsiveContainer width="100%" height={220}>
+        <BarChart data={data} margin={{ top: 5, right: 30, bottom: 5, left: 30 }}>
           <XAxis
             dataKey="month"
             axisLine={false}
             tickLine={false}
-            tick={{ fontSize: 12 }}
-            className="fill-zinc-500 dark:fill-zinc-400"
-          />
-          <YAxis
-            allowDecimals={false}
-            axisLine={false}
-            tickLine={false}
-            tick={{ fontSize: 12 }}
-            width={30}
-            className="fill-zinc-500 dark:fill-zinc-400"
+            fontSize={12}
+            stroke="currentColor"
+            opacity={0.5}
           />
           <Tooltip
             contentStyle={{
@@ -51,11 +44,7 @@ export function ActivityChart({ data }: Props) {
               `${value} ${value === 1 ? "activity" : "activities"}`,
             ]}
           />
-          <Bar
-            dataKey="count"
-            fill="#f97316"
-            radius={[4, 4, 0, 0]}
-          />
+          <Bar dataKey="count" fill="#f97316" radius={[4, 4, 0, 0]} />
         </BarChart>
       </ResponsiveContainer>
     </div>
