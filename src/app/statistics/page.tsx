@@ -1,7 +1,6 @@
-import GitHubCalendar from "react-github-calendar"
-
 import { Card } from "@/components/ui/card"
 import { HeadingText } from "@/components/common/heading-text"
+import { GithubCalendar } from "@/components/statistics/github-calendar"
 import { ActivityChart } from "@/components/statistics/activity-chart"
 import { RecentActivities } from "@/components/statistics/recent-activities"
 import { StravaCalendar } from "@/components/statistics/strava-calendar"
@@ -40,12 +39,7 @@ export default async function Stats() {
               Github Statistics
             </h2>
             <Card className="w-full p-3">
-              <GitHubCalendar
-                username="maakle"
-                fontSize={12}
-                blockMargin={3}
-                blockSize={10}
-              />
+              <GithubCalendar />
             </Card>
           </section>
 
