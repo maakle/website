@@ -55,8 +55,8 @@ export default function PrivacyPage() {
           4. Analytics
         </h2>
         <p>
-          This website uses analytics services (Google Analytics, PostHog, and
-          Vercel Analytics) to understand how visitors interact with the site.
+          This website uses analytics services (Google Analytics and Vercel
+          Analytics) to understand how visitors interact with the site.
           These services may collect anonymized usage data such as pages visited,
           time spent, and referral sources. The legal basis is Art. 6(1) lit. f
           GDPR (legitimate interest in improving the website).

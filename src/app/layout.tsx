@@ -1,6 +1,5 @@
 import "@/styles/globals.css"
 
-import { Suspense } from "react"
 import { Metadata, Viewport } from "next"
 import { Inter } from "next/font/google"
 import { GoogleAnalytics } from "@next/third-parties/google"
@@ -12,9 +11,6 @@ import { cn } from "@/lib/utils"
 import Footer from "@/components/layout/footer"
 import Navbar from "@/components/layout/navbar"
 import { ThemeProvider } from "@/components/theme-provider"
-
-import PostHogPageView from "./PostHogPageView"
-import { PHProvider } from "./providers"
 
 const inter = Inter({ subsets: ["latin"], display: "swap" })
 
@@ -82,32 +78,25 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <PHProvider>
-        <body
-          className={cn(
-            "bg-background text-zinc-800 antialiased dark:text-zinc-200",
-            inter.className
-          )}
-        >
-          <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-            <div className="flex min-h-screen flex-col px-4 py-4 md:container md:w-[48rem] md:px-0 md:py-8">
-              <Navbar />
-              <SpeedInsights />
-              <Analytics />
-              <Suspense fallback={null}>
-                <PostHogPageView />
-              </Suspense>
-              {process.env.NEXT_PUBLIC_GOOGLE_TAG_ID && (
-                <GoogleAnalytics
-                  gaId={process.env.NEXT_PUBLIC_GOOGLE_TAG_ID}
-                />
-              )}
-              <main className="flex-1">{children}</main>
-              <Footer />
-            </div>
-          </ThemeProvider>
-        </body>
-      </PHProvider>
+      <body
+        className={cn(
+          "bg-background text-zinc-800 antialiased dark:text-zinc-200",
+          inter.className
+        )}
+      >
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+          <div className="flex min-h-screen flex-col px-4 py-4 md:container md:w-[48rem] md:px-0 md:py-8">
+            <Navbar />
+            <SpeedInsights />
+            <Analytics />
+            {process.env.NEXT_PUBLIC_GOOGLE_TAG_ID && (
+              <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_TAG_ID} />
+            )}
+            <main className="flex-1">{children}</main>
+            <Footer />
+          </div>
+        </ThemeProvider>
+      </body>
     </html>
   )
 }
